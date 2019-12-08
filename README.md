@@ -52,6 +52,26 @@ Change to
 
     <Target Name="BuildClassesDex" DependsOnTargets="CreateClassesDexOutputDir;GetPredexedSysJars;GetProjectJars"
 
+Insert
+
+      <TrimEnd
+        Text="$(OutputClassesDexDir)"
+        Character="\">
+       <Output TaskParameter="Output" ItemName="OutputClassesDexDirWOTrailing" />
+    </TrimEnd>
+
+before 
+
+    <Exec Condition="('@(_SysJarsLocations)'!='') Or ('@(_JarsLocations)'!='')"
+
+Change
+
+    Command="$(DxClassesDexCmd) @(_SysJarsLocations->'%22%(FullPath)%22', ' ') @(_JarsLocations->'%22%(PredexedJar)%22', ' ')"/>
+    
+To
+
+    Command="$(DxClassesDexCmd)@(OutputClassesDexDirWOTrailing)%22 @(_SysJarsLocations->'%22%(FullPath)%22', ' ') @(_JarsLocations-    >'%22%(PredexedJar)%22', ' ')"/>
+
 Insert 
 
     <UsingTask TaskName="TrimEnd" AssemblyFile="$(BDS)\bin\Borland.Build.Tasks.Shared.dll"/> 
