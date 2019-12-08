@@ -34,7 +34,8 @@ Find <Target Name="BuildClassesDex" DependsOnTargets="CreateClassesDexOutputDir;
 Change to
 <Target Name="BuildClassesDex" DependsOnTargets="CreateClassesDexOutputDir;GetPredexedSysJars;GetProjectJars"
 
-Insert <UsingTask TaskName="TrimEnd" AssemblyFile="$(BDS)\bin\Borland.Build.Tasks.Shared.dll"/> after the Project header in the top of the file.
+Insert <UsingTask TaskName="TrimEnd" AssemblyFile="$(BDS)\bin\Borland.Build.Tasks.Shared.dll"/> after the Project header in the
+top of the file.
 
 Save file.
 
