@@ -98,7 +98,7 @@ as the first statement in your FormCreate.
 
 Build your project.
 
-Add the generated dex files (ProjectDir\Configuration\classes.dex classes2.dex ...) on your project deployment page.
+Add the generated dex files (ProjectDir\Configuration\classes.dex classes2.dex ...) on your project deployment page. Set Remote Path to Classes\
 
 Rebuild.
 
